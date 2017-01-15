@@ -26,7 +26,6 @@ sub_modules = (
     "view"
 )
 
-# sub_mods = [__import__(__package__ + ".assets." + submod, {}, {}, submod) for submod in sub_modules]
 sub_mods = [importlib.import_module(__package__ + ".assets." + submod) for submod in sub_modules]
 sub_mods.sort(key = lambda mod: (mod.bl_info['category'], mod.bl_info['name']))
 
@@ -38,13 +37,11 @@ def unregister_submodule(mod):
     if mod.__addon_enabled__:
         mod.unregister()
         mod.__addon_enabled__ = False
-        # name = mod.__name__.split('.')[-1]
 
 def register():
     for mod in sub_mods:
         if not hasattr(mod, '__addon_enabled__'):
             mod.__addon_enabled__ = False
-        # name = mod.__name__.split('.')[-1]
         register_submodule(mod)
 
 def unregister():

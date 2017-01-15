@@ -1,6 +1,6 @@
 bl_info = {
     "name": "Shade Menu: Key: 'R'",
-    "description": "View Modes",
+    "description": "Shade Modes",
     "blender": (2, 78, 0),
     "category": "3d View"
 }

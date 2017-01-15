@@ -1,6 +1,6 @@
 bl_info = {
     "name": "Pivot Menu: Key: '.'",
-    "description": "Manipulator Modes",
+    "description": "Pivot Modes",
     "blender": (2, 78, 0),
     "category": "3d View"
 }

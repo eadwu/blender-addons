@@ -35,13 +35,13 @@ class VIEW3D_PIE_manipulator_of(Menu):
         layout = self.layout
         pie = layout.menu_pie()
 
-        pie.operator("transform.translate", text = "FTranslate")
-        pie.operator("transform.rotate", text = "FRotate")
-        pie.operator("transform.resize", text = "FResize")
         pie.operator("view3d.manipulator_set", icon = 'MAN_TRANS', text = "Translate").type = 'TRANSLATE'
         pie.operator("view3d.manipulator_set", icon = 'MAN_ROT', text = "Rotate").type = 'ROTATE'
         pie.operator("view3d.manipulator_set", icon = 'MAN_SCALE', text = "Scale").type = 'SCALE'
         pie.prop(context.space_data, "show_manipulator")
+        pie.operator("transform.translate", text = "Translate")
+        pie.operator("transform.rotate", text = "Rotate")
+        pie.operator("transform.resize", text = "Resize")
 
 classes = [VIEW3D_manipulator_set_of, VIEW3D_PIE_manipulator_of]
 addon_keymaps = []
