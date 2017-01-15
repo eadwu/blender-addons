@@ -1,10 +1,7 @@
 bl_info = {
-    "name": "Edit Menu: Key: 'W'",
+    "name": "Edit Menu: Key: 'Q'",
     "description": "Edit Modes",
     "blender": (2, 78, 0),
-    "location": "W",
-    "warning": "",
-    "wiki_url": "",
     "category": "Mesh"
 }
 
@@ -189,6 +186,64 @@ class VIEW3D_PIE_face_of(Menu):
         clear_freestyle_face = pie.operator("mesh.mark_freestyle_face", text = "Clear Freestyle Face")
         clear_freestyle_face.clear = True
 
+class VIEW3D_PIE_special_of(Menu):
+    bl_label = "Special"
+
+    def draw(self, context):
+        layout = self.layout
+        pie = layout.menu_pie()
+        pie = pie.column()
+
+        hide = pie.operator("mesh.hide", text = "Hide")
+        hide.unselected = False
+        pie.operator("mesh.reveal", text = "Reveal")
+        select_inverse = pie.operator("mesh.select_all", text = "Select Inverse")
+        select_inverse.action = 'INVERT'
+
+        pie = layout.menu_pie()
+        pie = pie.column()
+
+        pie.operator("mesh.flip_normals", text = "Flip Normals")
+        pie.operator("mesh.vertices_smooth", text = "Smooth")
+        pie.operator("mesh.vertices_smooth_laplacian", text = "Laplacian Smooth")
+
+        pie = layout.menu_pie()
+        pie = pie.column()
+
+        pie.operator("mesh.inset", text = "Inset Faces")
+        pie.operator("mesh.bevel", text = "Bevel")
+        pie.operator("mesh.bridge_edge_loops", text = "Bridge Edge Loops")
+
+        pie = layout.menu_pie()
+        pie = pie.row()
+
+        pie.operator("mesh.blend_from_shape", text = "Blend From Shape")
+        pie.operator("mesh.shape_propagate_to_all", text = "Shape Propagate")
+        pie.operator("mesh.shortest_path_select", text = "Select Shortest Path")
+        pie.operator("mesh.sort_elements", text = "Sort Mesh Elements")
+        pie.operator("mesh.symmetrize", text = "Symmetrize")
+        pie.operator("mesh.symmetry_snap", text = "Snap to Symmetry")
+
+        pie = layout.menu_pie()
+        pie = pie.row()
+
+        subdivide = pie.operator("mesh.subdivide", text = "Subdivide")
+        subdivide.smoothness = 0
+        subdivide_smooth = pie.operator("mesh.subdivide", text = "Subdivide Smooth")
+        subdivide_smooth.smoothness = 1
+
+        pie = layout.menu_pie()
+        pie = pie.row()
+
+        pie.operator("mesh.merge", text = "Merge...")
+        pie.operator("mesh.remove_doubles", text = "Remove Doubles")
+
+        pie = layout.menu_pie()
+        pie = pie.row()
+
+        pie.operator("mesh.faces_shade_smooth", text = "Shade Smooth")
+        pie.operator("mesh.faces_shade_flat", text = "Shade Flat")
+
 class VIEW3D_PIE_edit_of(Menu):
     bl_label = "Modes"
     bl_idname = "pie.edit_of"
@@ -200,8 +255,9 @@ class VIEW3D_PIE_edit_of(Menu):
         pie.operator("wm.call_menu_pie", text = "Vertex").name = "VIEW3D_PIE_vertex_of"
         pie.operator("wm.call_menu_pie", text = "Edge").name = "VIEW3D_PIE_edge_of"
         pie.operator("wm.call_menu_pie", text = "Face").name = "VIEW3D_PIE_face_of"
+        pie.operator("wm.call_menu_pie", text = "Special").name = "VIEW3D_PIE_special_of"
 
-classes = [VIEW3D_PIE_vertex_of, VIEW3D_PIE_edge_of, VIEW3D_PIE_face_of, VIEW3D_PIE_edit_of]
+classes = [VIEW3D_PIE_vertex_of, VIEW3D_PIE_edge_of, VIEW3D_PIE_face_of, VIEW3D_PIE_special_of, VIEW3D_PIE_edit_of]
 addon_keymaps = []
 
 def register():
@@ -212,7 +268,7 @@ def register():
 
     if wm.keyconfigs.addon:
         km = wm.keyconfigs.addon.keymaps.new(name = 'Mesh')
-        kmi = km.keymap_items.new('wm.call_menu_pie', 'W', 'PRESS')
+        kmi = km.keymap_items.new('wm.call_menu_pie', 'Q', 'PRESS')
         kmi.properties.name = "pie.edit_of"
         addon_keymaps.append((km, kmi))
 

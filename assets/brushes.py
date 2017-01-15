@@ -1,5 +1,5 @@
 bl_info = {
-    "name": "Brushes Menu: Key: 'R'",
+    "name": "Brushes Menu: Key: 'F'",
     "description": "Sculpt Brushes",
     "blender": (2, 78, 0),
     "category": "Sculpt"
@@ -29,7 +29,7 @@ def register():
 
     if wm.keyconfigs.addon:
         km = wm.keyconfigs.addon.keymaps.new(name = 'Sculpt')
-        kmi = km.keymap_items.new('wm.call_menu_pie', 'R', 'PRESS')
+        kmi = km.keymap_items.new('wm.call_menu_pie', 'F', 'PRESS')
         kmi.properties.name = "pie.brushes_of"
         addon_keymaps.append((km, kmi))
 

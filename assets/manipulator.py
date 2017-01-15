@@ -1,5 +1,5 @@
 bl_info = {
-    "name": "Manipulator Menu: Key: 'Q'",
+    "name": "Manipulator Menu: Key: 'W'",
     "description": "Manipulator Modes",
     "blender": (2, 78, 0),
     "category": "3d View"
@@ -53,7 +53,7 @@ def register():
 
     if wm.keyconfigs.addon:
         km = wm.keyconfigs.addon.keymaps.new(name = 'Object Non-modal')
-        kmi = km.keymap_items.new('wm.call_menu_pie', 'Q', 'PRESS')
+        kmi = km.keymap_items.new('wm.call_menu_pie', 'W', 'PRESS')
         kmi.properties.name = "view3d.manipulator_of"
         addon_keymaps.append((km, kmi))
 
