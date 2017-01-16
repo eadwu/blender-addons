@@ -1,5 +1,5 @@
 bl_info = {
-    "name": "Edit Menu: Key: 'Q'",
+    "name": "Edit Menu: Key: 'F'",
     "description": "Edit Modes",
     "blender": (2, 78, 0),
     "category": "Mesh"
@@ -268,7 +268,7 @@ def register():
 
     if wm.keyconfigs.addon:
         km = wm.keyconfigs.addon.keymaps.new(name = 'Mesh')
-        kmi = km.keymap_items.new('wm.call_menu_pie', 'Q', 'PRESS')
+        kmi = km.keymap_items.new('wm.call_menu_pie', 'F', 'PRESS')
         kmi.properties.name = "pie.edit_of"
         addon_keymaps.append((km, kmi))
 

@@ -17,13 +17,11 @@ bl_info = {
 
 sub_modules = (
     "object_modes",
-    "manipulator",
     "mesh_select",
     "brushes",
     "shade",
     "pivot",
-    "edit",
-    "view"
+    "edit"
 )
 
 sub_mods = [importlib.import_module(__package__ + ".assets." + submod) for submod in sub_modules]

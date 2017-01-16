@@ -1,6 +1,6 @@
 bl_info = {
-    "name": "Shade Menu: Key: 'R'",
-    "description": "Shade Modes",
+    "name": "Viewport Shading: Key: 'Z'",
+    "description": "Shading Modes",
     "blender": (2, 78, 0),
     "category": "3d View"
 }
@@ -35,7 +35,7 @@ def register():
 
     if wm.keyconfigs.addon:
         km = wm.keyconfigs.addon.keymaps.new(name = 'Object Non-modal')
-        kmi = km.keymap_items.new('wm.call_menu_pie', 'R', 'PRESS')
+        kmi = km.keymap_items.new('wm.call_menu_pie', 'Z', 'PRESS')
         kmi.properties.name = "pie.shade_of"
         addon_keymaps.append((km, kmi))
 
