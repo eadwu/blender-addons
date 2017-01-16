@@ -8,7 +8,7 @@ bl_info = {
     'author': 'Gensoki',
     'version': (0, 0, 1),
     'blender': (2, 7, 8),
-    'description': 'Common actions I use in pie menus',
+    'description': 'Some common actions I use that have been transferred to pie menus',
     'location': 'Addons Preferences',
     'warning': '',
     'wiki_url': '',
