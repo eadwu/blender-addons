@@ -1,7 +1,4 @@
-import bpy
 import importlib
-from bpy.props import (BoolProperty, PointerProperty)
-from bpy.types import (PropertyGroup, AddonPreferences)
 
 bl_info = {
     'name': 'Pie Menu Essentials',
