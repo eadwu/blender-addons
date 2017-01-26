@@ -1,3 +1,4 @@
+import bpy
 import importlib
 
 bl_info = {
@@ -20,6 +21,14 @@ sub_modules = (
     "pivot",
     "edit"
 )
+
+def addon_exists(name):
+    for addon_name in bpy.context.user_preferences.addons.keys():
+        if name in addon_name: return True
+    return False
+
+if addon_exists("retopoflow"):
+    sub_modules = sub_modules + ("retopoflow", )
 
 sub_mods = [importlib.import_module(__package__ + ".assets." + submod) for submod in sub_modules]
 sub_mods.sort(key = lambda mod: (mod.bl_info['category'], mod.bl_info['name']))
