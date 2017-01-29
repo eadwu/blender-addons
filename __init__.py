@@ -31,7 +31,7 @@ if addon_exists("retopoflow"):
     sub_modules = sub_modules + ("retopoflow", )
 
 sub_mods = [importlib.import_module(__package__ + ".assets." + submod) for submod in sub_modules]
-sub_mods.sort(key = lambda mod: (mod.bl_info['category'], mod.bl_info['name']))
+# sub_mods.sort(key = lambda mod: (mod.bl_info['category'], mod.bl_info['name']))
 
 def register_submodule(mod):
     mod.register()
