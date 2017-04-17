@@ -1,0 +1,15 @@
+[submodule "batch-operations"]
+	path = batch-operations
+	url = https://github.com/dairin0d/batch-operations.git
+[submodule "mifthtools"]
+	path = mifthtools
+	url = https://github.com/mifth/mifthtools.git
+[submodule "Matalogue"]
+	path = Matalogue
+	url = https://github.com/gregzaal/Matalogue.git
+[submodule "Blender_add-ons"]
+	path = Blender_add-ons
+	url = https://github.com/lapineige/Blender_add-ons.git
+[submodule "Sculpt_Brushes"]
+	path = Sculpt_Brushes
+	url = https://github.com/IIK3D/Sculpt_Brushes.git
